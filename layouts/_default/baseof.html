@@ -14,5 +14,15 @@
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
+  {{ if .Store.Get "hasMermaid" }}
+  <script src="{{ "js/mermaid.min.js" | relURL }}"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "default",
+      gitGraph: { rotateCommitLabel: false },
+    });
+  </script>
+  {{ end }}
 </body>
 </html>
