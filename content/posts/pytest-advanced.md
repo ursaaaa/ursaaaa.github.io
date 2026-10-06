@@ -1,6 +1,7 @@
 ---
 title: "pytest 进阶"
 date: 2026-10-06T10:15:00+08:00
+tags: [pytest, 测试]
 ---
 
 上一篇 [pytest 入门](/posts/pytest-getting-started/) 结尾留了张路线图：conftest.py、mock、覆盖率、CI。这篇把它们走完，外加 fixture 作用域和标记这两个进阶篇绕不开的话题。示例统一带上类型注解，惯例的来由见上一篇的「类型注解」一节。

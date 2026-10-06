@@ -62,6 +62,22 @@ body {
   text-decoration-color: var(--muted);
 }
 
+/* 标签页 */
+.tag-list { list-style: none; margin: 0; padding: 0; }
+.tag-item { display: flex; gap: 0.6rem; align-items: baseline; padding: 0.35rem 0; }
+.tag-item a { color: var(--fg); text-decoration: none; }
+.tag-item a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--muted);
+}
+.tag-count {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 /* 文章页 */
 .post-header { margin: 0 0 2.5rem; }
 .post-title { font-size: 1.65rem; line-height: 1.35; margin: 0 0 0.4rem; }
@@ -70,6 +86,14 @@ body {
   font-size: 0.92rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
+.post-tags { margin: 0.5rem 0 0; }
+.post-tags a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+  margin-right: 0.55rem;
+}
+.post-tags a:hover { color: var(--fg); }
 .post h2 { font-size: 1.3rem; margin: 2.2rem 0 0.8rem; }
 .post h3 { font-size: 1.1rem; margin: 1.8rem 0 0.6rem; }
 .post p { margin: 0.9rem 0; }

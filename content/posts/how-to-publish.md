@@ -1,6 +1,7 @@
 ---
 title: "如何发布一篇文章"
 date: 2026-10-06T09:05:00+08:00
+tags: [Hugo, 建站]
 ---
 
 在 `content/posts/` 下新建一个 Markdown 文件，推送到 GitHub 即自动发布，全程约一分钟。

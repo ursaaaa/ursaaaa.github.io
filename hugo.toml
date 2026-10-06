@@ -2,7 +2,10 @@ baseURL = "https://ursaaaa.github.io/"
 defaultContentLanguage = "zh"
 title = "Ursaaaa · 技术笔记"
 enableRobotsTXT = true
-disableKinds = ["taxonomy", "term"]
+capitalizeListTitles = false
+
+[taxonomies]
+  tag = "tags"
 
 [languages.zh]
 locale = "zh-CN"
