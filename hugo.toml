@@ -1,0 +1,24 @@
+baseURL = "https://ursaaaa.github.io/"
+defaultContentLanguage = "zh"
+title = "Ursaaaa · 技术笔记"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[languages.zh]
+locale = "zh-CN"
+label = "中文"
+weight = 1
+
+[pagination]
+  pagerSize = 20
+
+[params]
+  description = "记录后端、前端与工程实践的学习笔记"
+  author = "Ursaaaa"
+  github = "https://github.com/ursaaaa"
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    lineNos = false
+    codeFences = true
