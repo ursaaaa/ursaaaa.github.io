@@ -121,6 +121,67 @@ body {
 .highlight { background: transparent; }
 .highlight pre { background: var(--code-bg); }
 
+/* 系列页 */
+.series-desc { color: var(--muted); margin: -0.8rem 0 2rem; }
+.series-list { list-style: none; margin: 0; padding: 0; }
+.series-item { display: flex; gap: 0.9rem; align-items: baseline; padding: 0.45rem 0; }
+.series-num {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  flex-shrink: 0;
+  min-width: 1.4rem;
+  text-align: right;
+}
+.series-item a { color: var(--fg); text-decoration: none; }
+.series-item a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--muted);
+}
+.series-sub { font-size: 1rem; color: var(--muted); font-weight: 400; margin: 2.2rem 0 0.4rem; }
+
+/* /series/ 总览 */
+.series-card { margin: 0 0 2.2rem; }
+.series-card-title { font-size: 1.15rem; margin: 0 0 0.25rem; }
+.series-card-title a { color: var(--fg); text-decoration: none; }
+.series-card-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--muted);
+}
+.series-card-desc { color: var(--muted); margin: 0 0 0.35rem; }
+.series-card-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* 文章页系列框 */
+.post .series-box {
+  margin: 3rem 0 0;
+  padding: 1rem 1.2rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.post .series-box-title { margin: 0 0 0.5rem; }
+.post .series-box-title a { font-weight: 700; color: var(--fg); text-decoration: none; }
+.post .series-box-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--muted);
+}
+.post .series-box-role { color: var(--muted); font-size: 0.9rem; margin-left: 0.6rem; }
+.post .series-nav { display: flex; justify-content: space-between; gap: 1.5rem; }
+.post .series-nav a { color: var(--muted); font-size: 0.95rem; text-decoration: none; flex: 1; }
+.post .series-nav a:last-child { text-align: right; }
+.post .series-nav a:hover { color: var(--fg); }
+
 /* 404 */
 .not-found { text-align: center; padding: 4rem 0; }
 .not-found h1 { font-size: 4rem; margin: 0; color: var(--muted); }

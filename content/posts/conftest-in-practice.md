@@ -2,6 +2,8 @@
 title: "conftest.py 实战"
 date: 2026-10-06T10:40:00+08:00
 tags: [pytest, 测试]
+series: [pytest]
+series_order: 3
 ---
 
 系列第三篇：[pytest 入门](/posts/pytest-getting-started/) 写基础用法，[pytest 进阶](/posts/pytest-advanced/) 讲到 conftest 的就近覆盖。这篇让 conftest.py 当主角，分享几个我在真实项目里反复用到的配方。

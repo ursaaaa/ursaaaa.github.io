@@ -10,5 +10,35 @@
     {{ end }}
   </header>
   {{ .Content }}
+  {{ $terms := .GetTerms "series" }}
+  {{ if $terms }}
+  {{ $s := index $terms 0 }}
+  {{ $members := $s.Pages.ByParam "series_order" }}
+  {{ $main := where $members ".Params.series_role" "ne" "companion" }}
+  {{ if eq .Params.series_role "companion" }}
+  <aside class="series-box">
+    <p class="series-box-title"><a href="{{ $s.RelPermalink }}">{{ $s.Title }}</a><span class="series-box-role">配套资料</span></p>
+  </aside>
+  {{ else }}
+  {{ $pos := 0 }}
+  {{ range $i, $p := $main }}{{ if eq $p.RelPermalink $.RelPermalink }}{{ $pos = add $i 1 }}{{ end }}{{ end }}
+  {{ $n := len $main }}
+  {{ $prev := "" }}
+  {{ $next := "" }}
+  {{ range $i, $p := $main }}
+  {{ if eq $p.RelPermalink $.RelPermalink }}
+  {{ if gt $i 0 }}{{ $prev = index $main (sub $i 1) }}{{ end }}
+  {{ if lt $i (sub $n 1) }}{{ $next = index $main (add $i 1) }}{{ end }}
+  {{ end }}
+  {{ end }}
+  <aside class="series-box">
+    <p class="series-box-title"><a href="{{ $s.RelPermalink }}">{{ $s.Title }}</a><span class="series-box-role">第 {{ $pos }}/{{ $n }} 篇</span></p>
+    <nav class="series-nav">
+      {{ with $prev }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ else }}<span></span>{{ end }}
+      {{ with $next }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ else }}<span></span>{{ end }}
+    </nav>
+  </aside>
+  {{ end }}
+  {{ end }}
 </article>
 {{ end }}

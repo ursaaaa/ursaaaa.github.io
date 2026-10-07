@@ -1,16 +1,40 @@
 {{ define "main" }}
-<h1 class="page-title">{{ .Title }}</h1>
-{{ range .Pages.GroupByDate "2006" }}
-<section class="year-group">
-  <h2 class="year-heading">{{ .Key }}</h2>
-  <ul class="post-list">
-    {{ range .Pages }}
-    <li class="post-item">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01-02" }}</time>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+{{ if eq .Data.Singular "series" }}
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ with .Content }}<div class="series-desc">{{ . }}</div>{{ end }}
+  {{ $members := .Pages.ByParam "series_order" }}
+  {{ $companion := where $members ".Params.series_role" "eq" "companion" }}
+  {{ $main := where $members ".Params.series_role" "ne" "companion" }}
+  <ol class="series-list">
+    {{ range $i, $p := $main }}
+    <li class="series-item">
+      <span class="series-num">{{ add $i 1 }}</span>
+      <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
     </li>
     {{ end }}
+  </ol>
+  {{ with $companion }}
+  <h2 class="series-sub">配套资料</h2>
+  <ul class="post-list">
+    {{ range . }}
+    <li class="post-item"><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
   </ul>
-</section>
+  {{ end }}
+{{ else }}
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ range .Pages.GroupByDate "2006" }}
+  <section class="year-group">
+    <h2 class="year-heading">{{ .Key }}</h2>
+    <ul class="post-list">
+      {{ range .Pages }}
+      <li class="post-item">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "01-02" }}</time>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </section>
+  {{ end }}
 {{ end }}
 {{ end }}

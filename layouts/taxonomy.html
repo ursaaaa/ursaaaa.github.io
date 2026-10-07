@@ -1,11 +1,23 @@
 {{ define "main" }}
 <h1 class="page-title">{{ .Title }}</h1>
-<ul class="tag-list">
-  {{ range .Data.Terms.ByCount }}
-  <li class="tag-item">
-    <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
-    <span class="tag-count">{{ .Count }}</span>
-  </li>
+{{ if eq .Data.Singular "series" }}
+  {{ range .Pages.ByWeight }}
+  {{ $companion := where .Pages ".Params.series_role" "eq" "companion" }}
+  {{ $main := where .Pages ".Params.series_role" "ne" "companion" }}
+  <section class="series-card">
+    <h2 class="series-card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    {{ with .Summary }}<p class="series-card-desc">{{ . }}</p>{{ end }}
+    <p class="series-card-meta">主线 {{ len $main }} 篇{{ if $companion }} · 配套 {{ len $companion }} 篇{{ end }}</p>
+  </section>
   {{ end }}
-</ul>
+{{ else }}
+  <ul class="tag-list">
+    {{ range .Data.Terms.ByCount }}
+    <li class="tag-item">
+      <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
+      <span class="tag-count">{{ .Count }}</span>
+    </li>
+    {{ end }}
+  </ul>
+{{ end }}
 {{ end }}

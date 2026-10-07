@@ -6,6 +6,7 @@ capitalizeListTitles = false
 
 [taxonomies]
   tag = "tags"
+  series = "series"
 
 [languages.zh]
 locale = "zh-CN"
@@ -16,7 +17,7 @@ weight = 1
   pagerSize = 20
 
 [params]
-  description = "记录后端、前端与工程实践的学习笔记"
+  description = "学到哪写到哪，写透的攒成系列"
   author = "Ursaaaa"
   github = "https://github.com/ursaaaa"
 

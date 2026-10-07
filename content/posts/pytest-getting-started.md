@@ -2,6 +2,8 @@
 title: "pytest 入门"
 date: 2026-10-06T09:50:00+08:00
 tags: [pytest, 测试]
+series: [pytest]
+series_order: 1
 ---
 
 写 Python 免不了写测试。标准库自带 unittest，但用例写起来啰嗦、失败信息也不够直观。[pytest](https://docs.pytest.org/) 用极少的样板代码解决了这些问题，是目前 Python 社区事实上的测试标准。
